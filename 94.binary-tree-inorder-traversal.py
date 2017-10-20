@@ -40,6 +40,12 @@ class Solution(object):
             else: 
                 # else, we should visit the node, append right node, itself, left node 
                 # into the stack, and also mark the node as visited
+                """
+                According to this adding ordering, we can prove that the val of current
+                node won't appear until all values of its left children nodes appeared.
+                And any val of its right children won't appear until the val of current 
+                node appeared. (Prove by contradiction)
+                """
                 if cur_node.right: stack.append(cur_node.right)
                 cur_node.visited = True
                 stack.append(cur_node)
